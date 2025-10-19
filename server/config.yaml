@@ -25,13 +25,13 @@ model:
 
 performance:
   # Input resolution (lower = faster, higher = better quality)
-  # Recommended: 256 for CPU, 320 for GPU
-  input_resolution: 256
+  # Recommended: 256 for CPU, 320 for GPU, 384 for high accuracy
+  input_resolution: 320
   
   # Frame skip factor: process every Nth frame
   # Higher value = faster but less smooth
   # Recommended: 2-3 for CPU, 1 for GPU
-  frame_skip: 2
+  frame_skip: 1
   
   # Maximum target FPS (actual FPS depends on hardware)
   max_fps: 15
@@ -92,8 +92,8 @@ data:
   # "compressed": use compression for large meshes
   mesh_format: "vertices_faces"
   
-  # Vertex precision (decimal places)
-  vertex_precision: 4
+  # Vertex precision (decimal places) - higher = more accurate
+  vertex_precision: 6
   
   # Enable mesh simplification (reduce vertex count)
   simplify_mesh: false

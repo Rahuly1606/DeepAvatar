@@ -139,9 +139,11 @@ function App() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                                         d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                3D Face Reconstruction
+                                Real-Time 3D Facial Reconstruction
                             </h1>
-                            <p className="text-gray-400 mt-1">Real-time facial geometry powered by 3DDFA_V2</p>
+                            <p className="text-gray-400 mt-1">
+                                High-accuracy facial geometry reconstruction • ~38K vertices • Dense 3DMM model
+                            </p>
                         </div>
 
                         <div className="text-right">
@@ -221,24 +223,38 @@ function App() {
                             <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                         </svg>
                         <div>
-                            <h3 className="text-sm font-semibold text-white mb-1">About This Application</h3>
+                            <h3 className="text-sm font-semibold text-white mb-1">About This System</h3>
                             <p className="text-xs text-gray-400 mb-2">
-                                This is a real-time 3D face reconstruction system powered by <strong>3DDFA_V2</strong> deep learning model,
-                                running completely offline on your local machine. No external APIs or cloud services are used.
+                                High-accuracy <strong>3D Facial Reconstruction</strong> powered by 3DDFA_V2 deep learning model.
+                                Reconstructs detailed facial geometry in real-time using a 3D Morphable Model (3DMM) with ~38,000 vertices.
                             </p>
-                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-gray-500">
-                                <div>
-                                    <strong className="text-gray-400">Backend:</strong> Flask + PyTorch
-                                </div>
-                                <div>
-                                    <strong className="text-gray-400">Frontend:</strong> React + Three.js
-                                </div>
-                                <div>
-                                    <strong className="text-gray-400">Mode:</strong> CPU-Optimized (ONNX Runtime)
+                            <div className="bg-blue-500/10 border border-blue-500/30 rounded px-3 py-2 mb-2">
+                                <div className="text-xs text-blue-300 font-semibold mb-1">🎯 What This System Reconstructs:</div>
+                                <div className="text-xs text-gray-300 space-y-0.5">
+                                    <div>✅ Complete facial surface (forehead, cheeks, nose, mouth, chin, jaw)</div>
+                                    <div>✅ Facial expressions and subtle details</div>
+                                    <div>✅ 3D depth and contours matching real face geometry</div>
+                                    <div>✅ Dense mesh with anatomically accurate proportions</div>
                                 </div>
                             </div>
-                            <div className="mt-2 text-xs text-gray-500">
-                                💡 <strong>Performance Tip:</strong> For better FPS (15-30), enable GPU mode by switching to CUDA device in config.yaml
+                            <div className="bg-amber-500/10 border border-amber-500/30 rounded px-3 py-2 mb-2">
+                                <div className="text-xs text-amber-300 font-semibold mb-1">ℹ️ Model Scope (Facial Only):</div>
+                                <div className="text-xs text-gray-300 space-y-0.5">
+                                    <div>• Hair, neck, and shoulders are not included (facial reconstruction scope)</div>
+                                    <div>• Focus is on precise facial geometry matching your real face</div>
+                                    <div>• Full body/avatar generation would require different AI models</div>
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-gray-500">
+                                <div>
+                                    <strong className="text-gray-400">Model:</strong> 3DDFA_V2 (3DMM)
+                                </div>
+                                <div>
+                                    <strong className="text-gray-400">Accuracy:</strong> Dense ~38K vertices
+                                </div>
+                                <div>
+                                    <strong className="text-gray-400">Processing:</strong> Real-time (CPU)
+                                </div>
                             </div>
                         </div>
                     </div>

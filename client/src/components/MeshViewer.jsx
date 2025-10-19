@@ -356,7 +356,7 @@ const MeshViewer = ({ meshData, showWireframe, meshColor, lighting }) => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                             d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                     </svg>
-                    3D Face Reconstruction
+                    3D Facial Geometry (Dense Mesh)
                 </h3>
 
                 <button
@@ -402,8 +402,29 @@ const MeshViewer = ({ meshData, showWireframe, meshColor, lighting }) => {
                 </div>
             </div>
 
-            <div className="mt-2 text-xs text-gray-500">
-                Controls only active when cursor is over the 3D model • {meshData ? `${meshData.vertices?.length || 0} vertices` : 'No mesh data'}
+            <div className="mt-2 flex items-center justify-between text-xs">
+                <div className="text-gray-500">
+                    Controls active when hovering over mesh
+                </div>
+                {meshData && (
+                    <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-1">
+                            <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                            <span className="text-gray-400">
+                                {meshData.vertices?.length.toLocaleString() || 0} vertices
+                            </span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                            <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                            <span className="text-gray-400">
+                                {meshData.faces?.length.toLocaleString() || 0} faces
+                            </span>
+                        </div>
+                        <div className="px-2 py-0.5 bg-green-500/20 text-green-400 rounded text-xs font-semibold">
+                            Dense Mesh
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
