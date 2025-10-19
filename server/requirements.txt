@@ -1,0 +1,37 @@
+# Core Flask Dependencies
+Flask==3.0.0
+flask-socketio==5.3.5
+flask-cors==4.0.0
+python-socketio==5.10.0
+
+# Deep Learning & Model Inference (using compatible versions)
+torch
+torchvision
+# ONNX Runtime - pre-built wheel (no CMake needed)
+onnxruntime
+# For GPU support, uncomment below (requires CUDA):
+# onnxruntime-gpu
+
+# Computer Vision & Image Processing
+opencv-python
+Pillow
+numpy
+scipy
+
+# Face Detection (Lightweight)
+facenet-pytorch
+
+# Data Processing
+PyYAML
+python-dotenv
+
+# Utilities
+eventlet  # Async support for SocketIO
+gevent
+tqdm
+
+# Monitoring & Logging
+psutil
+matplotlib 
+imageio 
+scikit-image

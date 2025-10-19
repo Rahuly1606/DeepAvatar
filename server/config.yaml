@@ -1,0 +1,128 @@
+# Configuration for 3D Face Reconstruction App
+# Optimized for CPU performance
+
+model:
+  # Path to 3DDFA_V2 pretrained weights
+  weights_path: "./models/phase1_wpdc_vdc.pth.tar"
+  
+  # Device selection: "cpu" or "cuda"
+  # GPU provides 15-30 FPS, CPU provides 2-8 FPS
+  device: "cpu"
+  
+  # Use ONNX Runtime for faster CPU inference
+  # Provides ~30% speed improvement on CPU
+  # Set to false if you don't have ONNX models or onnxscript
+  use_onnx: false
+  
+  # ONNX model path (auto-generated if not exists)
+  onnx_model_path: "./models/face_recon_optimized.onnx"
+  
+  # Enable FP16 quantization for ONNX (if supported by CPU)
+  use_fp16: false
+  
+  # Landmark template for 3DDFA_V2
+  landmark_template: "./models/similarity_Lm3D_all.mat"
+
+performance:
+  # Input resolution (lower = faster, higher = better quality)
+  # Recommended: 256 for CPU, 320 for GPU
+  input_resolution: 256
+  
+  # Frame skip factor: process every Nth frame
+  # Higher value = faster but less smooth
+  # Recommended: 2-3 for CPU, 1 for GPU
+  frame_skip: 2
+  
+  # Maximum target FPS (actual FPS depends on hardware)
+  max_fps: 15
+  
+  # Thread pool size for async processing
+  # Recommended: CPU core count - 1
+  thread_pool_size: 3
+  
+  # Enable face tracking between frames (saves processing)
+  # Detects face once, then tracks landmarks
+  enable_tracking: true
+  
+  # Redetect face every N frames (when tracking enabled)
+  redetect_interval: 30
+
+face_detection:
+  # Face detector: "mtcnn" (lightweight) or "retinaface" (more accurate)
+  detector: "mtcnn"
+  
+  # Minimum face detection confidence
+  min_confidence: 0.9
+  
+  # Face detection resolution (can be lower than input_resolution)
+  detection_resolution: 256
+
+socket:
+  # Enable binary data compression
+  compression: true
+  
+  # Use binary format instead of JSON (faster)
+  binary_format: true
+  
+  # Maximum message size (bytes)
+  max_message_size: 10485760  # 10MB
+  
+  # Ping timeout (seconds)
+  ping_timeout: 60
+  
+  # Ping interval (seconds)
+  ping_interval: 25
+
+server:
+  # Backend host
+  host: "0.0.0.0"
+  
+  # Backend port
+  port: 5000
+  
+  # Enable CORS
+  cors_allowed_origins: "*"
+  
+  # Debug mode
+  debug: true
+
+data:
+  # Mesh output format
+  # "vertices_faces": return vertex coordinates and face indices
+  # "compressed": use compression for large meshes
+  mesh_format: "vertices_faces"
+  
+  # Vertex precision (decimal places)
+  vertex_precision: 4
+  
+  # Enable mesh simplification (reduce vertex count)
+  simplify_mesh: false
+  
+  # Target vertex count (if simplification enabled)
+  target_vertices: 5000
+
+logging:
+  # Enable performance logging
+  log_performance: true
+  
+  # Log every N frames
+  log_interval: 30
+  
+  # Verbose mode (detailed logs)
+  verbose: false
+  
+  # Save logs to file
+  save_logs: false
+  log_file: "./logs/performance.log"
+
+debug:
+  # Save input frames to disk (for debugging)
+  save_frames: false
+  save_frames_path: "./debug/frames/"
+  
+  # Save output meshes to disk
+  save_meshes: false
+  save_meshes_path: "./debug/meshes/"
+  
+  # Enable profiling
+  enable_profiling: false
