@@ -2,6 +2,10 @@
 
 A full-stack real-time 3D face reconstruction application using **3DDFA_V2** deep learning model, optimized for CPU performance.
 
+
+<img width="549" height="568" alt="image" src="https://github.com/user-attachments/assets/5046766f-ebde-4ff8-8d94-8a02b11e7486" />
+
+
 ## 🎯 Features
 
 - **Real-time webcam streaming** with efficient frame processing
